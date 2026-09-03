@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MailGuard AI</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+
+<main class="container">
+
+
+    <header>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    MAILGUARD<span>AI</span>
+                </div>
+
+                <div class="brand-sub">
+                    EMAIL SECURITY ENGINE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="online">
+
+            <span></span>
+
+            AI ONLINE
+
+        </div>
+
+    </header>
+
+
+
+    <section class="hero">
+
+        <div class="tag">
+            INTELLIGENT EMAIL ANALYSIS
+        </div>
+
+
+        <h1>
+
+            Don't trust the inbox.
+
+            <br>
+
+            <span>Verify it.</span>
+
+        </h1>
+
+
+        <p>
+
+            Paste any email and let the AI analyze
+            its language patterns to determine whether
+            it looks like spam.
+
+        </p>
+
+    </section>
+
+
+
+    <section class="card">
+
+
+        <div class="card-top">
+
+            <div>
+
+                <div class="label">
+                    EMAIL SCANNER
+                </div>
+
+                <h2>
+                    Analyze message
+                </h2>
+
+            </div>
+
+
+            <div class="shield">
+                🛡
+            </div>
+
+        </div>
+
+
+        <form method="POST">
+
+
+            <div class="textarea-box">
+
+                <div class="textarea-header">
+
+                    <span>
+                        EMAIL CONTENT
+                    </span>
+
+                    <span id="counter">
+                        0 characters
+                    </span>
+
+                </div>
+
+
+                <textarea
+                    id="emailInput"
+                    name="email"
+                    placeholder="Paste the complete email here..."
+                    required
+                >{{ email }}</textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="scanButton"
+            >
+
+                <span>
+                    SCAN EMAIL
+                </span>
+
+                <b>
+                    →
+                </b>
+
+            </button>
+
+
+        </form>
+
+
+
+        {% if result %}
+
+        <div class="result
+
+            {% if result.prediction == 'spam' %}
+                result-danger
+            {% else %}
+                result-safe
+            {% endif %}
+
+        ">
+
+
+            <div class="result-icon">
+
+                {% if result.prediction == 'spam' %}
+                    !
+                {% else %}
+                    ✓
+                {% endif %}
+
+            </div>
+
+
+            <div class="result-content">
+
+                {% if result.prediction == 'spam' %}
+
+                <div class="result-status danger">
+                    THREAT DETECTED
+                </div>
+
+                <h2>
+                    This email looks like spam.
+                </h2>
+
+                <p>
+                    The AI detected language patterns
+                    associated with spam messages.
+                </p>
+
+                {% else %}
+
+                <div class="result-status safe">
+                    NO STRONG THREAT DETECTED
+                </div>
+
+                <h2>
+                    This email appears legitimate.
+                </h2>
+
+                <p>
+                    The AI did not detect strong spam
+                    patterns in this message.
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="probabilities">
+
+                <div class="probability">
+
+                    <span>
+                        SPAM
+                    </span>
+
+                    <strong>
+                        {{ "%.1f"|format(
+                            result.spam_probability * 100
+                        ) }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="probability">
+
+                    <span>
+                        LEGITIMATE
+                    </span>
+
+                    <strong>
+                        {{ "%.1f"|format(
+                            result.ham_probability * 100
+                        ) }}%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="confidence">
+
+                <div class="confidence-head">
+
+                    <span>
+                        MODEL CONFIDENCE
+                    </span>
+
+                    <strong>
+                        {{ "%.1f"|format(
+                            result.confidence * 100
+                        ) }}%
+                    </strong>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div
+                        style="
+                        width:
+                        {{ result.confidence * 100 }}%;
+                        "
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        {% endif %}
+
+
+    </section>
+
+
+    <footer>
+
+        <span>
+            NLP ENGINE
+        </span>
+
+        <span>
+            TF-IDF
+        </span>
+
+        <span>
+            LOGISTIC REGRESSION
+        </span>
+
+        <span>
+            LOCAL PROCESSING
+        </span>
+
+    </footer>
+
+
+</main>
+
+
+<script
+    src="{{ url_for('static', filename='script.js') }}"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,788 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(112, 82, 255, .14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(0, 220, 255, .10),
+            transparent 30%
+        ),
+        #05060a;
+
+    color: #f4f5f8;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+.ambient {
+
+    position: fixed;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: .22;
+
+    pointer-events: none;
+
+    animation: float 10s infinite alternate ease-in-out;
+
+}
+
+
+.ambient-one {
+
+    background: #765cff;
+
+    top: -180px;
+
+    left: -100px;
+
+}
+
+
+.ambient-two {
+
+    background: #00d9ff;
+
+    right: -150px;
+
+    bottom: -100px;
+
+    animation-delay: -5s;
+
+}
+
+
+@keyframes float {
+
+    to {
+        transform: translate(50px, -35px);
+    }
+
+}
+
+
+.container {
+
+    position: relative;
+
+    width: min(1000px, 92%);
+
+    margin: auto;
+
+    padding: 30px 0;
+
+}
+
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.brand-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 13px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #775aff,
+            #3d2e9f
+        );
+
+    box-shadow:
+        0 0 30px rgba(119,90,255,.3);
+
+}
+
+
+.brand-name {
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+
+.brand-name span {
+
+    color: #7c6aff;
+
+}
+
+
+.brand-sub {
+
+    color: #555a68;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    margin-top: 3px;
+
+}
+
+
+.online {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 50px;
+
+    color: #777d8d;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    background: rgba(255,255,255,.025);
+
+}
+
+
+.online span {
+
+    width: 7px;
+
+    height: 7px;
+
+    background: #4cff9b;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 12px #4cff9b;
+
+}
+
+
+.hero {
+
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 105px auto 50px;
+
+}
+
+
+.tag {
+
+    display: inline-block;
+
+    color: #777d8d;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(46px, 7vw, 76px);
+
+    line-height: .98;
+
+    letter-spacing: -4px;
+
+    font-weight: 900;
+
+}
+
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #9b89ff,
+            #00dcff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.hero p {
+
+    max-width: 580px;
+
+    margin: 24px auto;
+
+    color: #747a89;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+.card {
+
+    padding: 28px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 27px;
+
+    background:
+        rgba(13,15,23,.72);
+
+    backdrop-filter: blur(30px);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.45);
+
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 22px;
+
+}
+
+
+.label {
+
+    color: #686e7d;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.card-top h2 {
+
+    font-size: 20px;
+
+    margin-top: 6px;
+
+}
+
+
+.shield {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 14px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: rgba(124,92,255,.1);
+
+    border: 1px solid rgba(124,92,255,.18);
+
+}
+
+
+.textarea-box {
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(0,0,0,.2);
+
+}
+
+
+.textarea-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 17px;
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
+
+    color: #565c6b;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+textarea {
+
+    display: block;
+
+    width: 100%;
+
+    height: 230px;
+
+    padding: 20px;
+
+    resize: vertical;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: #e6e8ee;
+
+    font-family: inherit;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+textarea::placeholder {
+
+    color: #444957;
+
+}
+
+
+button {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 17px;
+
+    border: 0;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #7458fa,
+            #5040c7
+        );
+
+    color: white;
+
+    font-weight: 900;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 35px rgba(103,79,230,.25);
+
+    transition: .25s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 20px 45px rgba(103,79,230,.4);
+
+}
+
+
+button b {
+
+    float: right;
+
+    font-size: 18px;
+
+}
+
+
+.result {
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 16px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    animation: appear .45s ease;
+
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.result-danger {
+
+    background: rgba(255,55,85,.045);
+
+}
+
+
+.result-safe {
+
+    background: rgba(55,255,155,.035);
+
+}
+
+
+.result-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 15px;
+
+    font-size: 21px;
+
+    font-weight: 900;
+
+}
+
+
+.result-danger .result-icon {
+
+    color: #ff5570;
+
+    background: rgba(255,55,85,.1);
+
+}
+
+
+.result-safe .result-icon {
+
+    color: #50ff9a;
+
+    background: rgba(55,255,155,.1);
+
+}
+
+
+.result-status {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    font-weight: 900;
+
+}
+
+
+.danger {
+
+    color: #ff5570;
+
+}
+
+
+.safe {
+
+    color: #50ff9a;
+
+}
+
+
+.result-content h2 {
+
+    font-size: 19px;
+
+    margin: 6px 0;
+
+}
+
+
+.result-content p {
+
+    color: #747a89;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.probabilities {
+
+    grid-column: 1 / -1;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 5px;
+
+}
+
+
+.probability {
+
+    padding: 13px;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,.025);
+
+    border: 1px solid rgba(255,255,255,.06);
+
+}
+
+
+.probability span {
+
+    display: block;
+
+    color: #626877;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.probability strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 18px;
+
+}
+
+
+.confidence {
+
+    grid-column: 1 / -1;
+
+}
+
+
+.confidence-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #656b79;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.confidence-head strong {
+
+    color: white;
+
+    font-size: 12px;
+
+}
+
+
+.bar {
+
+    height: 6px;
+
+    background: #1c1f27;
+
+    border-radius: 20px;
+
+    margin-top: 9px;
+
+    overflow: hidden;
+
+}
+
+
+.bar div {
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #765cff,
+            #00d9ff
+        );
+
+    border-radius: inherit;
+
+    animation: grow .8s ease;
+
+}
+
+
+@keyframes grow {
+
+    from {
+        width: 0 !important;
+    }
+
+}
+
+
+footer {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin-top: 24px;
+
+    color: #454a57;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+@media(max-width:650px) {
+
+    .hero {
+        margin-top: 70px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .probabilities {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+}
